@@ -9,6 +9,7 @@ mix_rate = 48000.0
 
 [node name="AudioManager" parent="." instance=ExtResource("1_xdr8y")]
 outputPath = NodePath("../AudioStreamPlayer2D")
+inputThreshold = 0.01
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamGenerator_68mhe")

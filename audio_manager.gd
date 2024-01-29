@@ -5,7 +5,7 @@ var index : int
 var effect : AudioEffectCapture
 var playback : AudioStreamGeneratorPlayback
 @export var outputPath : NodePath
-var inputThreshold = 0.005
+@export var inputThreshold = 0.005
 var receiveBuffer := PackedFloat32Array()
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -30,7 +30,9 @@ func _process(delta):
 	pass
 
 func processMic():
+	
 	var sterioData : PackedVector2Array = effect.get_buffer(effect.get_frames_available())
+	# var sterioData : PackedVector2Array = effect.get_buffer(512)
 	
 	if sterioData.size() > 0:
 		

@@ -9,7 +9,7 @@ var serverIsReady : bool
 func _ready():
 	if "--server" in OS.get_cmdline_args():
 		_on_host_button_down()
-		print("hosting on " + str(8910))
+		print("hosting on " + str(7777))
 	multiplayer.peer_connected.connect(peerConnected)
 	multiplayer.peer_disconnected.connect(peerDisconnected)
 	pass # Replace with function body.
@@ -17,8 +17,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if serverIsReady:
-		peer.poll()
+	# if serverIsReady:
+	# 	peer.poll()
 	pass
 	
 
@@ -34,9 +34,9 @@ func peerDisconnected(id):
 	print("peer disconnected! " + str(id))
 
 func _on_host_button_down():
-	var error = peer.create_server(8910)
+	var error = peer.create_server(7777)
 	if error:
-		print("we have an error for server: " + error)
+		print("we have an error for server: " + str(error))
 	multiplayer.multiplayer_peer = peer
 	
 	var p = playerScene.instantiate()
